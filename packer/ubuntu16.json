@@ -5,7 +5,7 @@
             "project_id": "week-3-178515",
             "image_name": "reddit-base-{{timestamp}}",
             "source_image": "ubuntu-1604-xenial-v20171026a",
-            "zone": "europe-west1-b",
+            "zone": "europe-west1-d",
             "ssh_username": "appuser",
             "machine_type": "f1-micro"
         }
