@@ -5,9 +5,14 @@
             "project_id": "week-3-178515",
             "image_name": "reddit-base-{{timestamp}}",
             "source_image": "ubuntu-1604-xenial-v20171026a",
-            "zone": "europe-west1-d",
+            "zone": "europe-west4-c",
             "ssh_username": "appuser",
-            "machine_type": "f1-micro"
+            "machine_type": "f1-micro",
+			"disk_size": "11",
+			"disk_type": "pd-standard",
+			"network": "default",
+			"tags": "puma",
+			"image_description": "Image with preinsatlled ruby and mongo db based on Ubuntu 1604 Xenial"
         }
     ],
     "provisioners": [
