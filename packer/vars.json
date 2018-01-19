@@ -1,7 +1,5 @@
 {
-  "variables": {
     "project_id": "week-3-178515",
     "source_image": "ubuntu-1604-xenial-v20171026a",
     "machine_type": "f1-micro"
   }
-}
