@@ -1,0 +1,5 @@
+{
+    "project_id": "infra-192502",
+    "source_image": "ubuntu-1604-xenial-v20171026a",
+    "machine_type": "f1-micro"
+  }

@@ -1,0 +1,29 @@
+{
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `project_id`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "source_image": "{{user `source_image`}}",
+            "zone": "europe-west4-c",
+            "ssh_username": "appuser",
+            "machine_type": "{{user `machine_type`}}",
+			"disk_size": "11",
+			"disk_type": "pd-standard",
+			"network": "default",
+			"tags": "puma",
+			"image_description": "Image with preinsatlled ruby and mongo db based on Ubuntu 1604 Xenial"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_ruby.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
