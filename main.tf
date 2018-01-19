@@ -1,7 +1,7 @@
 provider "google" {
-  project = "infra-192502"
+  project = "${var.project}"
 
-  region = "europe-west1"
+  region = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
@@ -12,12 +12,12 @@ resource "google_compute_instance" "app" {
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "reddit-base-1516246236"
+      image = "${var.disk_image}"
     }
   }
   # определение сетевого интерфейса
   metadata {
-    sshKeys = "appuser:${file("C:/Users/NKuzmin/.ssh/appuser.pub")}"
+    sshKeys = "appuser:${file(var.public_key_path)}"
   }
   network_interface {
     # сеть, к которой присоединить данный интерфейс
@@ -29,7 +29,7 @@ resource "google_compute_instance" "app" {
     type = "ssh"
     user = "appuser"
     agent = false
-    private_key = "${file("C:/Users/NKuzmin/.ssh/appuser")}"
+    private_key = "${file(var.connection)}"
   }
   provisioner "file" {
     source = "files/puma.service"
